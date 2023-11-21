@@ -58,10 +58,12 @@ const EditarTarefa = ({handleCloseEditar, idTarefaSelecionada, tarefas, tarefa, 
               statusTarefa:statusTarefa
           };
         }
-
+        
         return obj;
       }),
-    );
+      );
+      
+      localStorage.setItem('tarefas', JSON.stringify(tarefas));
 
     //console.log(`Tarefas Editadas: ` + JSON.stringify(tarefas));
     handleCloseEditar();

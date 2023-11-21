@@ -55,7 +55,9 @@ const ListarTarefa = () => {
 
   //O array definido acima é setado como conteúdo do state Tarefas na renderização inicial do componente.
   useEffect(() => {
+    const storedTarefas = JSON.parse(localStorage.getItem('tarefas')) || [];
     setTarefas(initialRows);
+    setTarefas(storedTarefas);
   },[]);
 
   const handleEditar = (id) => {

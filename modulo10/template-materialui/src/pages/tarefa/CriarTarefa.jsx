@@ -38,18 +38,20 @@ const CriarTarefa = ({handleClose, tarefas, setTarefas}) =>{
     //  Com o console.log, podemos visualizar o seu conteúdo na aba Console, no inspecionador de elementos, na janela do navegador
     console.log(`id: ${idTarefa} \n titulo: ${tituloTarefa} \n descrição: ${descricaoTarefa} \n inicio: ${inicioTarefa} \n fim: ${fimTarefa} \n recurso: ${recursoTarefa} \n status: ${statusTarefa}`);
 
+    const infoTarefas = {
+      idTarefa,
+      tituloTarefa,
+      descricaoTarefa,
+      inicioTarefa,
+      fimTarefa,
+      recursoTarefa,
+      statusTarefa
+    };
+
     setTarefas(
-      [...tarefas, 
-        {
-          idTarefa,
-          tituloTarefa,
-          descricaoTarefa,
-          inicioTarefa,
-          fimTarefa,
-          recursoTarefa,
-          statusTarefa
-        }
-      ]);
+      [...tarefas, infoTarefas]);
+
+      localStorage.setItem('tarefas', JSON.stringify([...tarefas, infoTarefas]));
     //console.log(`Tarefas: ` + JSON.stringify(tarefas));
     handleClose();
   };
